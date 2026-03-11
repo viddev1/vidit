@@ -396,18 +396,24 @@
 
     /* Dark-mode specific surfaces */
     [data-theme="dark"] body {
-      background:
-        radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.04), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.02), transparent 55%),
-        linear-gradient(135deg, #000000, #050505 60%, #020202 100%);
+      background-color: #050505;
     }
 
     [data-theme="dark"] .shell {
-      background: radial-gradient(circle at top, rgba(15, 15, 15, 0.96), rgba(15, 15, 15, 1));
+      background-color: #050505;
     }
 
     [data-theme="dark"] .card {
-      background: linear-gradient(145deg, rgba(15, 15, 15, 0.97), rgba(10, 10, 10, 0.99));
+      background-color: #0b0b0b;
+      border-color: rgba(55, 65, 81, 0.9);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.75);
+    }
+
+    [data-theme="dark"] .pill,
+    [data-theme="dark"] .role-tag {
+      background-color: #1f2937;
+      border-color: rgba(75, 85, 99, 1);
+      color: #e5e7eb;
     }
   </style>
 </head>
