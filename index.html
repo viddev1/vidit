@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vidit Chaurasia – Data & AI Leader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --card: #111827;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.35);
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --shadow-soft: 0 22px 45px rgba(15, 23, 42, 0.85);
+      --shadow-subtle: 0 12px 30px rgba(15, 23, 42, 0.65);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #1d283a 0, #020617 52%, #000 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      padding: 32px 18px 40px;
+    }
+
+    .shell {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 55%) no-repeat,
+                  radial-gradient(circle at bottom right, rgba(129, 140, 248, 0.12), transparent 55%) no-repeat,
+                  linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 0.98));
+      border-radius: 32px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      box-shadow: var(--shadow-soft);
+      padding: 28px 26px 30px;
+      backdrop-filter: blur(26px);
+    }
+
+    @media (min-width: 768px) {
+      body {
+        padding: 44px 32px 52px;
+      }
+
+      .shell {
+        padding: 34px 38px 38px;
+      }
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    @media (min-width: 768px) {
+      header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 28px;
+      }
+    }
+
+    .identity {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 20%, #38bdf8 0, rgba(56, 189, 248, 0.1) 30%, transparent 60%),
+        radial-gradient(circle at 70% 80%, #a855f7 0, rgba(168, 85, 247, 0.08) 35%, transparent 65%),
+        radial-gradient(circle at 50% 50%, #0f172a 0, #020617 70%);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.95);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avatar::after {
+      content: "VC";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 24px;
+      color: #e5e7eb;
+      letter-spacing: 0.08em;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 2.2vw + 1.4rem, 2.3rem);
+      letter-spacing: -0.03em;
+      margin-bottom: 4px;
+    }
+
+    .tagline {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .highlights {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.14), transparent 65%);
+      padding: 4px 11px;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+
+    .contact a {
+      color: var(--accent);
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 5px 11px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .contact span {
+      color: var(--muted);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.65fr);
+      gap: 24px;
+    }
+
+    @media (min-width: 920px) {
+      main {
+        grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.2fr);
+        gap: 26px;
+      }
+    }
+
+    section {
+      margin-bottom: 18px;
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.96));
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-subtle);
+      padding: 18px 18px 18px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    @media (min-width: 768px) {
+      .card {
+        padding: 20px 22px 20px;
+      }
+    }
+
+    .card + .card {
+      margin-top: 14px;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+      gap: 12px;
+    }
+
+    .card-title {
+      font-size: 0.88rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .card-subtitle {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .accent-bar {
+      height: 2px;
+      width: 44px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), #a855f7);
+    }
+
+    p {
+      font-size: 0.94rem;
+      line-height: 1.58;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul {
+      list-style: none;
+      margin-left: 0;
+      display: grid;
+      gap: 6px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    li::before {
+      content: "•";
+      margin-right: 7px;
+      color: var(--accent);
+    }
+
+    .two-col-list {
+      display: grid;
+      gap: 4px 18px;
+    }
+
+    @media (min-width: 720px) {
+      .two-col-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .experience-item {
+      padding: 10px 0 4px;
+      border-top: 1px dashed rgba(148, 163, 184, 0.35);
+    }
+
+    .experience-item:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .role-header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 3px;
+    }
+
+    .role-title {
+      font-weight: 600;
+      font-size: 0.96rem;
+    }
+
+    .role-meta {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .role-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 4px;
+      font-size: 0.78rem;
+    }
+
+    .role-tag {
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      text-align: right;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="identity">
+        <div class="avatar" aria-hidden="true"></div>
+        <div>
+          <h1>Vidit Chaurasia</h1>
+          <div class="tagline">Director-level Data &amp; AI Leader · Auckland, New Zealand</div>
+          <div class="highlights">
+            <span class="pill">GenAI &amp; Optimisation</span>
+            <span class="pill">Data &amp; AI Governance</span>
+            <span class="pill">Responsible AI</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact">
+        <span>Auckland, NZ</span>
+        <span>·</span>
+        <span>+64 210 874 6289</span>
+        <a href="mailto:vidu_01@ymail.com">Email</a>
+        <a href="https://www.linkedin.com/in/vidit-chaurasia/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    </header>
+
+    <main>
+      <div>
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Executive Profile</div>
+              <div class="accent-bar"></div>
+            </div>
+          </div>
+          <p>
+            Director‑level Data &amp; AI leader with 13+ years’ experience helping large organisations use AI, machine learning and optimisation safely and effectively.
+            Works at the intersection of strategy, risk and technology, with a focus on governance, explainability and sustainable value creation.
+            Background spans telco, insurance and energy across New Zealand, the US and India, with a track record of moving from experimental analytics to industrialised,
+            well‑controlled Data &amp; AI capabilities.
+          </p>
+        </section>
+
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Current Roles</div>
+              <div class="accent-bar"></div>
+            </div>
+          </div>
+
+          <article class="experience-item">
+            <div class="role-header">
+              <div class="role-title">Principal Consultant – Data Science, Optimisation &amp; AI</div>
+              <div class="role-meta">FDL · Auckland, New Zealand · Jan 2025 – Present</div>
+            </div>
+            <div class="role-tags">
+              <span class="role-tag">Data &amp; AI Roadmap</span>
+              <span class="role-tag">Optimisation &amp; OR</span>
+              <span class="role-tag">Governance &amp; Risk</span>
+            </div>
+            <ul>
+              <li>Own the Data &amp; AI roadmap with a focus on optimisation and planning, ensuring initiatives align with business strategy, risk appetite and regulatory constraints.</li>
+              <li>Design governance and decision‑making structures around AI/ML use, including model‑approval processes, monitoring thresholds and documentation suitable for audit and Board scrutiny.</li>
+              <li>Lead design and deployment of optimisation models and decision‑support tools into production systems, with explicit attention to explainability and “human‑in‑the‑loop” controls.</li>
+              <li>Advise senior leadership on AI‑related risks and their mitigation, embedding these into policies and operating procedures.</li>
+            </ul>
+          </article>
+
+          <article class="experience-item">
+            <div class="role-header">
+              <div class="role-title">Principal Consultant – GenAI &amp; Responsible AI Advisor</div>
+              <div class="role-meta">Freelance · Auckland, New Zealand · Nov 2023 – Present</div>
+            </div>
+            <div class="role-tags">
+              <span class="role-tag">GenAI Strategy</span>
+              <span class="role-tag">Responsible AI</span>
+            </div>
+            <ul>
+              <li>Advise organisations on GenAI strategy and guardrails, including acceptable‑use policies, data‑handling standards, IP protection and privacy/security considerations.</li>
+              <li>Design GenAI architectures and workflows that embed controls for prompt‑injection, hallucination risks and inappropriate content, with clear monitoring and escalation paths.</li>
+              <li>Educate senior stakeholders on GenAI opportunities and limitations, ensuring realistic expectations and clear accountability for AI‑enabled decisions.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Prior Experience</div>
+              <div class="accent-bar"></div>
+            </div>
+          </div>
+
+          <article class="experience-item">
+            <div class="role-header">
+              <div class="role-title">Principal Consultant – Data Science &amp; AI</div>
+              <div class="role-meta">Tenzing Limited · Auckland, New Zealand · Aug 2019 – Present</div>
+            </div>
+            <div class="role-tags">
+              <span class="role-tag">MLOps &amp; Lifecycle</span>
+              <span class="role-tag">Feature Store</span>
+            </div>
+            <ul>
+              <li>Designed and implemented data‑science lifecycle and MLOps frameworks for a large telco, moving from ad‑hoc experiments to controlled, repeatable and auditable deployments.</li>
+              <li>Defined standards for model development, validation, deployment and monitoring, integrating MLFlow, Great Expectations and DeepChecks for assurance and auditability.</li>
+              <li>Architected a feature store and data products providing a single, governed source of ML features, improving consistency and strengthening data‑quality controls.</li>
+              <li>Led productionisation of 20+ models in real‑time customer‑journey pipelines, with clear fall‑back strategies and business‑owner sign‑off.</li>
+            </ul>
+          </article>
+
+          <article class="experience-item">
+            <div class="role-header">
+              <div class="role-title">Senior Consultant – Data Science &amp; Big Data; ETL Data Engineer</div>
+              <div class="role-meta">Accenture LLP (USA) &amp; Accenture Limited (India) · Mar 2013 – Aug 2019</div>
+            </div>
+            <div class="role-tags">
+              <span class="role-tag">Regulated Environments</span>
+              <span class="role-tag">Data Quality &amp; Security</span>
+            </div>
+            <ul>
+              <li>Delivered data and analytics solutions for global insurance and financial‑services clients operating under stringent governance and regulatory standards.</li>
+              <li>Implemented large‑scale data‑quality and profiling frameworks and scheduled 500+ daily jobs generating data‑quality metrics for 500+ users.</li>
+              <li>Managed data security and access‑control design for 5,000+ users in custom reporting applications, ensuring compliance with internal controls and external requirements.</li>
+              <li>Built and tuned high‑volume data‑integration and warehouse solutions (including 10‑billion‑record/day sources) with strong emphasis on integrity, lineage and performance risk.</li>
+            </ul>
+          </article>
+        </section>
+      </div>
+
+      <aside>
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Key Strengths</div>
+              <div class="accent-bar"></div>
+            </div>
+          </div>
+          <ul class="two-col-list">
+            <li>Data &amp; AI Governance</li>
+            <li>Responsible &amp; Explainable AI</li>
+            <li>Model Risk Management</li>
+            <li>Mathematical Optimisation</li>
+            <li>Planning &amp; Operations Research</li>
+            <li>GenAI &amp; LLMs</li>
+            <li>MLOps &amp; Lifecycle Design</li>
+            <li>Data Quality &amp; Lineage</li>
+            <li>C‑suite &amp; Board Engagement</li>
+            <li>Change &amp; Adoption</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Selected Technical Background</div>
+              <div class="accent-bar"></div>
+            </div>
+          </div>
+          <ul>
+            <li>AI/ML &amp; Optimisation: Mathematical modelling, operations research, planning &amp; optimisation; ML/deep learning (TensorFlow, PyTorch, Keras); GenAI &amp; LLMs (GPTs, LLaMA, etc.).</li>
+            <li>Data &amp; Platforms: Snowflake; Databricks; Delta Lake; AWS &amp; Azure data/ML services; streaming and real‑time data pipelines (Kafka, Kinesis, Spark Streaming).</li>
+            <li>Governance Tooling: MLFlow; feature stores; data‑quality and validation (Great Expectations); model‑testing/validation (DeepChecks); orchestration (Airflow, Azure Data Factory).</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Education</div>
+              <div class="accent-bar"></div>
+            </div>
+          </div>
+          <p>Bachelor of Information Technology – JSS Academy of Technical Education, Gautam Buddh Technical University, India.</p>
+        </section>
+      </aside>
+    </main>
+
+    <div class="footer-note">
+      Last updated for Director / Head of Data &amp; AI opportunities in New&nbsp;Zealand.
+    </div>
+  </div>
+</body>
+</html>
+
